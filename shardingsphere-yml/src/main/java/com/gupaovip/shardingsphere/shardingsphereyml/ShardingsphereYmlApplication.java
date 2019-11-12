@@ -8,6 +8,7 @@ public class ShardingsphereYmlApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ShardingsphereYmlApplication.class, args);
+        System.out.println("yml-分支");
     }
 
 }
