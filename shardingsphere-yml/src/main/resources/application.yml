@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: sharding
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.gupaovip.shardingsphere.shardingsphereyml.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

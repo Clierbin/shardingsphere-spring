@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupaovip.shardingsphere.shardingsphereyml.mapper.DictionaryMapper">
+  <resultMap id="BaseResultMap" type="com.gupaovip.shardingsphere.shardingsphereyml.entity.Dictionary">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:27:18 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <id column="dictionary_id" jdbcType="BIGINT" property="dictionaryId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:27:18 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    dictionary_id, name, value
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:27:18 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from dictionary
+    where dictionary_id = #{dictionaryId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:27:18 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    delete from dictionary
+    where dictionary_id = #{dictionaryId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gupaovip.shardingsphere.shardingsphereyml.entity.Dictionary">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:27:18 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into dictionary (dictionary_id, name, value
+      )
+    values (#{dictionaryId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gupaovip.shardingsphere.shardingsphereyml.entity.Dictionary">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:27:18 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into dictionary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dictionaryId != null">
+        dictionary_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dictionaryId != null">
+        #{dictionaryId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gupaovip.shardingsphere.shardingsphereyml.entity.Dictionary">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:27:18 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update dictionary
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        value = #{value,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dictionary_id = #{dictionaryId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gupaovip.shardingsphere.shardingsphereyml.entity.Dictionary">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:27:18 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update dictionary
+    set name = #{name,jdbcType=VARCHAR},
+      value = #{value,jdbcType=VARCHAR}
+    where dictionary_id = #{dictionaryId,jdbcType=BIGINT}
+  </update>
+    <insert id="addOne" keyProperty="dictionaryId" useGeneratedKeys="true" parameterType="dictionary">
+       insert into dictionary(name,value) values(#{name},#{value})
+    </insert>
+</mapper>

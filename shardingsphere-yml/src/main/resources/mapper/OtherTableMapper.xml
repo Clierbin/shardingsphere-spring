@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupaovip.shardingsphere.shardingsphereyml.mapper.OtherTableMapper">
+  <resultMap id="BaseResultMap" type="com.gupaovip.shardingsphere.shardingsphereyml.entity.OtherTable">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:35:23 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:35:23 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    id, name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:35:23 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from other_table
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:35:23 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    delete from other_table
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gupaovip.shardingsphere.shardingsphereyml.entity.OtherTable">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:35:23 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into other_table (id, name)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gupaovip.shardingsphere.shardingsphereyml.entity.OtherTable">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:35:23 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into other_table
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gupaovip.shardingsphere.shardingsphereyml.entity.OtherTable">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:35:23 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update other_table
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gupaovip.shardingsphere.shardingsphereyml.entity.OtherTable">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Tue Nov 12 17:35:23 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update other_table
+    set name = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <insert id="addOne" useGeneratedKeys="true" keyProperty="id" parameterType="otherTable">
+        insert into other_table(id,name) values(#{id},#{name})
+    </insert>
+
+  <select id="getAll" resultType="otherTable">
+        select * from other_table
+    </select>
+
+</mapper>
